@@ -1,0 +1,24 @@
+@startuml
+
+title "Joining As Venter"
+
+actor Venter
+
+User -> GUI : join as venter
+GUI->backend: joinAsVenter(Socket s)
+backend->privateChat: boolean joinRoom(String roomName,Socket s)
+privateChat->QueueManager: addToVentersQueue(int socketid)
+privateChat->QueueManager: boolean isVentersNotEmpty
+privateChat->QueueManager: boolean isListenersNotEmpty
+privateChat->QueueManager: int dequeueVenter
+privateChat->QueueManager: int dequeueListener
+backend->privateChat: int getNumberOfVenters(string RoomName)
+
+
+privateChat-->backend: numberOfVenters
+backend-->GUI: numberOfVenters
+
+
+
+
+@enduml

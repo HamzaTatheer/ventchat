@@ -1,0 +1,10 @@
+1. Setup socket io and express listener (done)
+2. Setup generic private chat and test it out (done)
+3. Setup Queue manager while using singleton pattern (done)
+4. Setup venters lobby (done)
+5. Setup listeners lobby (done)
+
+
+6. Optimise Queues
+7. Add Security to now allow User to join random room
+8. Handle Exceptions of disconect, rejoining of User from another browser
