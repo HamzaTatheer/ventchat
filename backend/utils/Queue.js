@@ -30,6 +30,10 @@ class Queue {
     return this.items.length == 0;
   }
 
+  getLength() {
+    return this.items.length;
+  }
+
   // printQueue function
   printQueue() {
     var str = "";

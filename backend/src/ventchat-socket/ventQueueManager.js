@@ -24,3 +24,12 @@ module.exports.isListeneresQueueEmpty = () => {
   console.log(listenersQueue.printQueue());
   return listenersQueue.isEmpty();
 };
+
+module.exports.getListenersQueueLength = () => {
+  return listenersQueue.getLength();
+};
+
+module.exports.getVentersQueueLength = () => {
+  console.log(ventersQueue.getLength());
+  return ventersQueue.getLength();
+};

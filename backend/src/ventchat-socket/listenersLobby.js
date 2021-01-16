@@ -12,10 +12,15 @@ const isUserLinkPossible = () => {
 
 module.exports = function (socket) {
   socket.on("joinAsListener", function (data) {
+    socket.join("listeners");
+    socket.emit("QueueLength", ventQueueManager.getListenersQueueLength());
     ventQueueManager.enqueueListener(socket);
+
     if (isUserLinkPossible() == true) {
       let user1 = ventQueueManager.dequeueListener();
       let user2 = ventQueueManager.dequeueVenter();
+      socket.in("listeners").emit("minus");
+      socket.to("venters").emit("minus");
       anonymousChat.allow(user1, user2);
       console.log("Connecting together");
     } else {

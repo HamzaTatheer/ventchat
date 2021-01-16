@@ -3,6 +3,7 @@
 3. Setup Queue manager while using singleton pattern (done)
 4. Setup venters lobby (done)
 5. Setup listeners lobby (done)
+--Basic Setup is done--
 
 
 6. Optimise Queues

@@ -13,10 +13,17 @@ const isUserLinkPossible = () => {
 
 module.exports = function (socket) {
   socket.on("joinAsVenter", function (data) {
+    //additional check needed to ensure that User does not join with same socket
+
+    socket.join("venters");
+    socket.emit("QueueLength", ventQueueManager.getVentersQueueLength());
     ventQueueManager.enqueueVenter(socket);
+
     if (isUserLinkPossible() == true) {
       let user1 = ventQueueManager.dequeueListener();
       let user2 = ventQueueManager.dequeueVenter();
+      socket.in("venters").emit("minus");
+      socket.to("listeners").emit("minus");
       anonymousChat.allow(user1, user2);
       console.log("Connecting together");
     } else {
