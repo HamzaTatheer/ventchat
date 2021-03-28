@@ -1,0 +1,34 @@
+.message-demo{
+
+    background: #d2d2d224;
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+    height: 100%;
+
+    .message{
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 50%;
+        border-radius: 12px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .message-left{
+        @extend .message;
+        background: #fff;
+    }
+
+    .message-right{
+        @extend .message;
+        text-align: right;
+        background: #6da877;
+        color: white;
+        margin-left: 50%;
+    }
+}
