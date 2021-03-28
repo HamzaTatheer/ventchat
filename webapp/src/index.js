@@ -8,13 +8,13 @@ import reportWebVitals from "./reportWebVitals";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 //Redux
-import { createStore } from "redux";
+import { createStore,applyMiddleware } from "redux";
+import thunk from 'redux-thunk';
 import { Provider } from "react-redux";
 import allReducer from "./redux/reducers";
 
 const store = createStore(
-	allReducer,
-	window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+	allReducer
 );
 
 ReactDOM.render(

@@ -1,8 +1,7 @@
 import React from "react";
-import Header from "./Header";
-import Button from "./subcomponents/Button";
-import Leaf from "../assets/images/leaf.jpg"
-import MessageDemo from "./MessageDemo";
+import Button from "../subcomponents/Button";
+import Leaf from "../../assets/images/leaf.jpg"
+import MessageDemo from "../MessageDemo";
 
 export default function VentChat({moveToNextScreen}){
     return (

@@ -1,7 +1,7 @@
 import React from "react";
-import Button from "./subcomponents/Button";
+import Button from "../subcomponents/Button";
 
-export default function Guidelines(){
+export default function Guidelines({moveToNextScreen}){
     return (
         <div className="ventchat-guideline d-flex justify-content-center align-items-center" style={{textAlign:"initial"}}>
             
@@ -20,6 +20,7 @@ export default function Guidelines(){
                     <div style={{marginBottom:"20px"}} className="w100 d-flex justify-content-center">
                     <Button
                     label="Understood"
+                    onClick={()=>moveToNextScreen()}
                     />
                     </div>
 

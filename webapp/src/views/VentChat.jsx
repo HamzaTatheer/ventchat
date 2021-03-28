@@ -1,10 +1,11 @@
 import React from "react";
-import WelcomeScreen from "../components/Welcome";
-import GuidelineScreen from "../components/Guidelines";
+import WelcomeScreen from "../components/Screens/Welcome";
+import GuidelineScreen from "../components/Screens/Guidelines";
+import ChatScreen from "../components/Screens/Chat/";
 import { useState } from "react";
 
 export default function VentChat(){
-    let screens = [WelcomeScreen,GuidelineScreen]
+    let screens = [WelcomeScreen,GuidelineScreen,ChatScreen]
 
     let [currentScreenIndex,setCurrentScreenIndex] = useState(0);
     

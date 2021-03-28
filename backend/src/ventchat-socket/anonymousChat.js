@@ -1,6 +1,10 @@
 //defines what attributes are present inside private chat
 const ChatUtils = require("../../utils/ChatUtills");
 module.exports.allow = function (sock1, sock2) {
+
+  sock1.emit("partner",{id:sock2.id});
+  sock2.emit("partner",{id:sock1.id});
+
   this.start(sock1);
   this.start(sock2);
 };
