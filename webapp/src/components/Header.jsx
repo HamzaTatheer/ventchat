@@ -7,7 +7,7 @@ export default function VentChat(){
     return (
         <div className="main-navbar d-flex justify-content-between align-items-center" style={{height:"10vh",width:"100%"}}>
             <div className="nav-logo">
-                <span style={{color:"white"}}>Therapy</span><span style={{color:"#227E45"}}> Channel</span>
+                <span style={{color:"white"}}>Therapy</span><span style={{color:"white"}}> Channel</span>
             </div>
             <div className="menu-items">
                 <Button headerBtn selected={true} label="Vent Chat"/>

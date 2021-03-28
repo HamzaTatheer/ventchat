@@ -12,12 +12,11 @@
 .header-btn-selected{
     @extend .header-btn;
     background: white;
-    color: black;
+    color: #0BA825;
 }
 
 .header-btn-unselected{
     @extend .header-btn;
-    background: black;
     color: white;    
 }
 
@@ -30,6 +29,7 @@
     padding-left: 30px;
     padding-right: 30px;
     border-radius: 12px;
+    cursor: pointer;
 }
 
 .custom-btn:hover{
