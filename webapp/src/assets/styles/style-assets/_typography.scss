@@ -72,3 +72,14 @@
 .white-text {
   color: $whiteColor;
 }
+
+
+.link{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link:hover{
+  color: #26c240;
+  text-decoration: underline;
+}
