@@ -18,7 +18,7 @@ module.exports.start = function (socket) {
 
   socket.on("startAnonymousChat", function (data) {
     //console.log(data);
-    data = JSON.parse(data);
+    //data = JSON.parse(data);
     console.log("Connecting with " + data.to);
     //Contact Authenticator Class for chat security
     const from = socket.id;
@@ -26,7 +26,7 @@ module.exports.start = function (socket) {
     socket.join(room(from, to));
 
     socket.on("message", function (data) {
-      data = JSON.parse(data);
+      //data = JSON.parse(data);
       if (!data) return;
 
       //      let mydata = JSON.parse(data);

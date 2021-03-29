@@ -20,14 +20,7 @@ function getChatID(sender, reciever) {
 function ChatLogic({socket,createConnection}){
 
     let [userType,setUserType] = useState("none");
-    let [roomName,setRoomName] = useState("none");
-
-    let makeRoom = (pid)=>{
-        const channel = [socket.id, pid].sort();
-        let room = channel[0] + "-" + channel[1];
-        setRoomName(room);
-    }
-
+    let [partnerId,setPartnerId] = useState("none");
 
     useEffect(()=>{
         let socket = io("http://localhost:5000/");
@@ -39,10 +32,11 @@ function ChatLogic({socket,createConnection}){
     <>
         {userType === "none" ? 
             <Selection socket={socket} onDone={({partnerId,userType})=>{
-                makeRoom(partnerId);
+                
+                setPartnerId(partnerId);
                 setUserType(userType);
             }}/> : 
-            <Chat userType={userType} roomName={roomName}/>
+            <Chat socket={socket} userType={userType} myId={socket.id} partnerId={partnerId}/>
         }
     </>
     )

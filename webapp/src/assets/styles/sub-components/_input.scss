@@ -5,6 +5,11 @@
 
 .custom-input{
     input[type="text"]{
-        outline-width: 0;
+        outline: none;
+        border: 1px solid #d5d5d5;
+    }
+
+    input[type="text"]:focus{
+        border: 1px solid green;
     }
 }
