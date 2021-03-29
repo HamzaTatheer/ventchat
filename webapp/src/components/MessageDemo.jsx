@@ -5,7 +5,7 @@ export default function MessageDemo(){
     return (
         <div className="message-demo">
             <div className="message-left">
-                    <span className="p1">Hey how are you</span>
+                    <span className="p1">Hey! how are you</span>
             </div>
             
             <div className="message-right">
