@@ -23,7 +23,7 @@ function ChatLogic({socket,createConnection}){
     let [partnerId,setPartnerId] = useState("none");
 
     useEffect(()=>{
-        let socket = io(process.env.BACKEND_CON || "localhost:5000/");
+        let socket = io("https://5000-111550ae-6c63-40f1-a9cb-8e736c8d4cd8.cs-asia-southeast1-vjqr.cloudshell.dev/?authuser=3");
         createConnection(socket)
     },[])
 
