@@ -29,7 +29,7 @@ function ChatLogic({socket,createConnection}){
 
 
 
-    if(socket && socket.connected)
+    if(socket)
     return (
     <>
         
