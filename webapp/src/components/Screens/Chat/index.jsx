@@ -23,13 +23,16 @@ function ChatLogic({socket,createConnection}){
     let [partnerId,setPartnerId] = useState("none");
 
     useEffect(()=>{
-        let socket = io(process.env.BACKEND_CON || "http://localhost:5000/");
+        let socket = io(process.env.BACKEND_CON || "localhost:5000/");
         createConnection(socket)
     },[])
 
-    if(socket)
+
+
+    if(socket && socket.connected)
     return (
     <>
+        
         {userType === "none" ? 
             <Selection socket={socket} onDone={({partnerId,userType})=>{
                 
@@ -42,7 +45,7 @@ function ChatLogic({socket,createConnection}){
     )
 
 
-    return (<>Retry Again later..</>);
+    return (<>loading:{process.env.BACKEND_CON}</>);
 }
 
 const mapStateToProps = (state) => {
