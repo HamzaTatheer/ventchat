@@ -28,6 +28,6 @@ module.exports = function () {
   let server = io(app);
 
   //Open port for communication
-  server.listen(process.env.PORT || 5000);
+  server.listen(process.env.PORT || 5000,'192.168.100.4');
   console.log("Server listening on port "+ (process.env.PORT || 5000));
 };

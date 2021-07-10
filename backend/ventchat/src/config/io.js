@@ -1,7 +1,8 @@
 var express = require("express");
 var socketio = require("socket.io");
 var http = require("http");
-var paringSocket = require("../sockets/pairing");
+var pairingSocket = require("../sockets/pairing");
+var chatSocket = require("../sockets/chat");
 
 module.exports = function (app) {
   const server = http.createServer(app);
@@ -15,7 +16,10 @@ module.exports = function (app) {
 
   io.on("connection", (socket) => {
     console.log("Client connected:" + socket.id);
-    paringSocket(socket);
+    socket.join('hello');
+    
+    pairingSocket(io,socket);
+    chatSocket(io,socket);
   });
 
   return server;
