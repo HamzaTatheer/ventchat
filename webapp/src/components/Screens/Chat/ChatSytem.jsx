@@ -31,32 +31,29 @@ const Messages = ({myid, messages }) => {
 
 
 
-function ChatSystem({socket,myId,partnerId,userType}){
+function ChatSystem({socket,myId,roomName,userType}){
     
 
 
-
-
-    function getRoomName(mid,pid){
-      const channel = [mid, pid].sort();
-      let room = channel[0] + "-" + channel[1];
-      return room;
-    }
-
-
-    let [history,setHistory] = useState([{id:1,message:"Hey"},{id:2,message:"ello"}]);
+    let [history,setHistory] = useState([{}]);
     let [text,setText] = useState("");
 
     useEffect(()=>{
-      socket.emit("startAnonymousChat",{to:partnerId});
-      socket.on("message",({message})=>{
-        setHistory(hist=>[...hist,{id:partnerId,message:message}]);
+      socket.emit("startChat",{room:roomName});
+      
+      socket.on("message",(message)=>{
+        setHistory(hist=>[...hist,{id:'otherid',message:message}]);
       })
-    },[socket,partnerId])
+
+      return ()=>{
+        socket.emit('endChat',{room:roomName});
+      }
+
+    },[socket,roomName])
     
     let sendMessage = ()=>{
         setHistory(hist=>[...hist,{id:myId,message:text}]);
-        socket.emit("message",{to:partnerId,message:text});
+        socket.emit("message",text);
         setText("");
     }
 

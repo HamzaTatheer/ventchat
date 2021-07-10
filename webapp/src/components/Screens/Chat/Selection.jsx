@@ -12,22 +12,22 @@ function Selection({onDone,socket}){
 
     useEffect(()=>{
 
-        socket.on("QueueLength",(val)=>{
+        socket.on("inLine",(val)=>{
             setLine(val);
         })
 
-        socket.on("partner",(data)=>{
-            onDone({partnerId:data.id,userType:selected})
-        })
-
-        socket.on("minus",()=>{
+        socket.on("moveAheadInLine",()=>{
             setLine(no=>no-1);
         })
 
+        socket.on("pairFound",(data)=>{
+            onDone({roomName:data.room,userType:selected})
+        })
+
         return ()=>{
-            socket.off("QueueLength");
-            socket.off("partner");
-            socket.off("minus");
+            socket.off("inLine");
+            socket.off("moveAheadInLine");
+            socket.off("pairFound");
         }
 
     },[selected]);
@@ -40,11 +40,11 @@ function Selection({onDone,socket}){
                 <div style={{width:"150px"}}>
                 <div style={{marginBottom:"10px"}}>Join As</div>
                 <Button onClick={()=>{
-                    socket.emit("joinAsVenter");
+                    socket.emit("join",{intent:'0'});
                     setSelected("venter");
                 }} label="venter" style={{marginBottom:"10px"}}/>
                 <Button onClick={()=>{
-                    socket.emit("joinAsListener");
+                    socket.emit("join",{intent:'1'});
                     setSelected("listener");
                 }} label="Listener"/>
                 </div>
