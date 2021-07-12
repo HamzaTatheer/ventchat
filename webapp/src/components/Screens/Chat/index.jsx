@@ -23,7 +23,7 @@ function ChatLogic({socket,createConnection}){
     let [partnerId,setPartnerId] = useState("none");
 
     useEffect(()=>{
-        let socket = io("http://192.168.100.4:5000");
+        let socket = io("https://ventchatapp.herokuapp.com/");
         createConnection(socket)
     },[])
 
