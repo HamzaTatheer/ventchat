@@ -21,7 +21,7 @@ function Selection({onDone,socket}){
         })
 
         socket.on("pairFound",(data)=>{
-            onDone({roomName:data.room,userType:selected})
+            onDone({room:data.room,userType:selected})
         })
 
         return ()=>{
