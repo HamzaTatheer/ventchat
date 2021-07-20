@@ -26,8 +26,8 @@ function ChatLogic({socket,createConnection}){
     
 
     useEffect(()=>{
-        //let socket = io("https://ventchatapp.herokuapp.com/");
-        let socket = io("http://localhost:8080");
+        let socket = io("https://ventchatapp.herokuapp.com/");
+        //let socket = io("http://localhost:8080");
         createConnection(socket)
     },[])
 
