@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import {useState} from "react";
 import Button from "../../subcomponents/Button";
 import {connect} from "react-redux";
+import cloudy from "../../../assets/images/cloudy.gif";
 
 
 
@@ -49,7 +50,16 @@ function Selection({onDone,socket}){
                 }} label="Listener"/>
                 </div>
                 :
-                <div>{selected} in line: {line}</div>
+                <div style={{marginBottom:"100px"}} className="d-flex flex-column align-items-center">
+                    <img width="178px" src={cloudy}/>
+
+                    <div className="QueueContainer">
+                        <span className='heading5' >{selected} in line: {line}</span>
+                    </div>
+
+                    <span style={{marginTop:"20px"}}>Connecting you with someone..</span>
+
+                </div>
             }
 
 

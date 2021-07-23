@@ -23,12 +23,12 @@
 
     .message-left{
         @extend .message;
-        background: #fff;
+        background: #F1F1F1;
     }
 
     .message-right{
         @extend .message;
-        background: #6da877;
+        background: #EC930F;
         color: white;
         margin-left: 50%;
     }

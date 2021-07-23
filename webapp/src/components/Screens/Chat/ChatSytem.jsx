@@ -3,6 +3,7 @@ import Input from "../../subcomponents/Input";
 import useSound from 'use-sound';
 import messageSound from "../../../assets/sounds/sendMessage.mp3";
 import { useHistory } from 'react-router-dom';
+import typing from "../../../assets/images/typing.gif";
 
 
 const Message = ({message,rightSide})=>{
@@ -85,6 +86,13 @@ function ChatSystem(props){
       });
 
       return ()=>{
+        socket.off("userDetails");
+        socket.off("joined");
+        socket.off("partnerName");
+        socket.off("typing_start");
+        socket.off("typing_stop");
+        socket.off("message");
+        socket.off("endChat");
       }
 
     },[socket,roomName,setIsTyping,setUserName1,setUserName2,setShouldSendUserName])
@@ -129,10 +137,25 @@ function ChatSystem(props){
     <div className="row align-items-center justify-content-center no-gutters">
         <div className="col-sm-0 col-md-3"/>
         <div className="col-sm-12 col-md-6">
-                <div style={{height:"80vh",paddingTop:"10%",width:"100%"}}>
-                    <div style={{width:"100%",height:"90%",background:"#fdf9f9"}}>
-                        <div style={{height:"10%",width:"100%",background:"black",textAlign:"initial",paddingLeft:"10px",paddingRight:"10px",paddingTop:"5px"}}>
-                          {error ? <span style={{color:"white"}} className="description">{error} </span> :                          <span style={{color:"white"}} className="description">{userName2 ? `Chatting With ${userName2}` : "Connecting.." } </span> }
+                <div style={{height:"88vh",paddingTop:"30px",width:"100%"}}>
+                    <div style={{width:"100%",height:"90%"}}>
+                        <div style={{height:"10%",width:"100%",borderBottom:"1px solid black",textAlign:"initial",paddingLeft:"10px",paddingRight:"10px",paddingTop:"5px",position:"relative"}}>
+                          {
+                          error ? 
+                          <div className="description">{error} </div> : 
+                          <div className="d-flex align-items-center"> 
+                            <div className="description">{userName2 ? `Chatting With ${userName2}` : "Connecting.." } </div>
+                            <div>
+                              {isTyping ? <img style={{paddingLeft:"10px"}} src={typing} width="30px"/> : ""}
+                            </div>
+
+                          </div>
+
+                          }
+
+                          <div style={{position:"absolute",right:"10px",top:"5px",color:"#169514",cursor:"pointer"}} onClick={()=>window.location.reload()}>Rejoin</div>
+
+
                         </div>
                         
                         <div style={{height:"90%"}}>
@@ -141,7 +164,6 @@ function ChatSystem(props){
 
                     </div>
                     <div className="d-flex align-items-center justify-content-center" style={{height:"9%",marginTop:"1%",width:"100%"}}>
-                        {isTyping ? "typing..." : ""}
                         <Input ChatInput placeholder="Say something" value={text} onChange={handleTextChange} onSubmit={()=>sendMessage()}/>
                     </div>
                 </div>

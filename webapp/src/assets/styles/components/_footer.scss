@@ -1,12 +1,13 @@
 .footer-container{
     position: absolute;
     bottom: 0px;
-    right: 30px;
+    left: 30px;
 }
 
 @media only screen and (max-width: 768px) {
     .footer-container{
-        left: 0px !important;
-        right: 0px !important;
+        position:initial;
+        margin-top: 20px;
+        text-align: center;
     }
 }

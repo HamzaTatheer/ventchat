@@ -1,5 +1,5 @@
 import React from "react";
-import WelcomeScreen from "../components/Screens/Welcome";
+import WelcomeScreen from "../components/Screens@v2/Welcome";
 import GuidelineScreen from "../components/Screens/Guidelines";
 import ChatScreen from "../components/Screens/Chat/";
 import { useState } from "react";
