@@ -1,5 +1,5 @@
 const {userInLine,validateUserJoiningLine} = require("../models/userInLine");
-
+const notifyAdmin = require('../utils/notifyAdmin');
 
 module.exports = function (io,socket){
 
@@ -26,7 +26,7 @@ module.exports = function (io,socket){
         socket.emit('inLine',lineSize);
         socket.join(lobbyName);
 
-        //get id of oldest date with intent 1
+        //get id of oldest date with intent 0
         let socketid1 = null;
         await userInLine.find({ intent : 0 }).sort({ "date" : -1 }).limit(1).then((doc)=>{      
             console.log(doc);
@@ -35,7 +35,7 @@ module.exports = function (io,socket){
         }
         )
 
-        //get id of oldest date with intent 2
+        //get id of oldest date with intent 1
         let socketid2 = null;
         await userInLine.find({ intent : 1 }).sort({ "date" : -1 }).limit(1).then((doc)=>
             socketid2 = doc[0] ? doc[0].socket_id : null
@@ -47,7 +47,14 @@ module.exports = function (io,socket){
 
 
         //check if both active
-        if (!socket1 || !socket2) return;
+        if (!socket1)
+            return;
+        
+        //if listener is not available then email admin about it so he can be online
+        if(!socket2){
+            notifyAdmin('A venter has no available listeners');
+            return;
+        }
 
         console.log('pairing users');
 

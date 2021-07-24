@@ -76,10 +76,7 @@ function ChatSystem(props){
         setIsTyping(false);
       })
 
-      socket.on("message",(message)=>{
-        setHistory(hist=>[...hist,{id:'otherid',message:message}]);
-        playSound();
-      })
+
 
       socket.on("endChat",()=>{
         setError("User has disconnected.. Refresh to connect again");
@@ -91,12 +88,24 @@ function ChatSystem(props){
         socket.off("partnerName");
         socket.off("typing_start");
         socket.off("typing_stop");
-        socket.off("message");
         socket.off("endChat");
       }
 
-    },[socket,roomName,setIsTyping,setUserName1,setUserName2,setShouldSendUserName])
+    },[])
 
+
+    useEffect(()=>{
+
+      socket.on("message",(message)=>{
+        playSound();
+        setHistory(hist=>[...hist,{id:'otherid',message:message}]);
+      })
+
+      return ()=>{
+        socket.off("message");
+      }
+
+    },[playSound])
 
     useEffect(()=>{
       if(shouldSendUserName === true && userName1 !== null)

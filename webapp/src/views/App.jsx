@@ -5,7 +5,7 @@ import React from "react";
 
 //Components
 import VentChat from "./VentChat"
-import Therapy from "../components/Screens/Chat/ChatSytem";
+import Therapy from "./Therapy";
 
 function App() {
 

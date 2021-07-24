@@ -35,7 +35,7 @@ function Selection({onDone,socket}){
 
 
     return (
-        <div className="d-flex w-100 h-100 justify-content-center align-items-center">
+        <div style={{height:"80vh"}} className="d-flex w-100 justify-content-center align-items-center">
             {
                 selected === "none" ?
                 <div style={{width:"150px"}}>
