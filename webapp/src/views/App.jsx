@@ -6,8 +6,13 @@ import React from "react";
 //Components
 import VentChat from "./VentChat"
 import Therapy from "./Therapy";
+import { useEffect } from "react";
 
 function App() {
+
+	useEffect(()=>{
+		document.title = "purifymymind - vent out and get advice";
+	},[])
 
 	return (
 		<div style={{position:"relative",width:"100%",minHeight:"100vh"}} className="App">
