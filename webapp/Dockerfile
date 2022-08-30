@@ -1,31 +1,12 @@
-FROM node:13.12.0-alpine as build-stage
-
-ARG REACT_APP_COMMIT_SHA
-ENV REACT_APP_COMMIT_SHA=$REACT_APP_COMMIT_SHA
-
+FROM node:14-alpine
+ENV CHOKIDAR_USEPOLLING=true
 WORKDIR /app
 
-COPY package.json /app/
+COPY package.json .
+RUN yarn install
 
-RUN yarn
 
-COPY ./ /app/
+COPY . .
 
-RUN yarn build
-
-FROM nginx:1.13-alpine
-
-RUN apk add --no-cache bash
-
-COPY --from=build-stage /app/build/ /usr/share/nginx/html
-COPY --from=build-stage /app/env.sh /usr/share/nginx/html
-COPY --from=build-stage /app/.runtime_env /usr/share/nginx/html
-COPY --from=build-stage /app/nginx.conf /etc/nginx/conf.d/default.conf
-
-WORKDIR /usr/share/nginx/html
-
-RUN chmod +x env.sh
-
-EXPOSE 80
-
-CMD ["/bin/bash", "-c", "/usr/share/nginx/html/env.sh && nginx -g \"daemon off;\""]
+EXPOSE 3000
+ENTRYPOINT ["yarn","start"]
