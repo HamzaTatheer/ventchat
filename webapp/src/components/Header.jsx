@@ -18,7 +18,7 @@ export default function VentChat(){
             </div>
             <div className="menu-items">
                 <Button onClick={()=>window.location.href="/"} headerBtn selected={isVentChat} label="Vent Chat"/>
-                <Button onClick={()=>window.location.href="/therapy"} headerBtn selected={isTherapy} label="Therapy Channel"/>
+                <Button onClick={()=>window.location.href="/therapy"} headerBtn selected={isTherapy} label="Therapy"/>
             </div>
             <div className="mobile-menu">
                 

@@ -10,12 +10,16 @@ export default function Guidelines({moveToNextScreen}){
                     <hr/>
                     <div style={{marginBottom:"10px"}} className="heading5">Venter:</div>
                     <div style={{marginBottom:"20px"}}>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elementum metus vitae mi convallis aliquam. Nulla consequat et magna a sodales. Integer scelerisque tellus et purus porttitor, rutrum bibendum magna tempus. Integer eget ullamcorper odio. Phasellus molestie est nec erat porta iaculis. Ut imperdiet blandit quam, sed imperdiet tellus aliquet eget. Maecenas dignissim sapien mi, at sagittis arcu rhoncus id. Quisque finibus nulla quis dapibus pretium.
+                        You will be connected with a listener where we you can talk about the problems you are facing. Maybe the person on the other side can help you out. However, keep in mind that they are humans and they might not offer the perfect advice. So we hope that they are able to help you out in some way but be patient..
                     </div>
                     <div style={{marginBottom:"10px"}} className="heading5">Listener:</div>
                     <div style={{marginBottom:"20px"}}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam elementum metus vitae mi convallis aliquam. Nulla consequat et magna a sodales. Integer scelerisque tellus et purus porttitor, rutrum bibendum magna tempus. Integer eget ullamcorper odio. Phasellus molestie est nec erat porta iaculis.
-                    </div>  
+                        Most people who come on these platforms need more of a listening year rather than wanting to solve their problem. Sometimes we face problems in life that can not be solved. Having someone else hear your heart can offer a sense of relief and give them hope. Be kind to others. You dont know what they are going through. A problem small for you might be big for them. So we advice you to be kind and listen. After all, we are here to help each other out
+                   </div>  
+
+                   <div style={{marginBottom:"20px"}}>
+                        <h5>Do not share any confidential information or real names for your own safety. We are not responsible if you share confidential data..</h5>
+                   </div>
 
                     <div style={{marginBottom:"20px"}} className="w100 d-flex justify-content-center">
                     <Button

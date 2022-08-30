@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Therapy(){
     return (
-        <>
-        Therapy
-        </>
+        <div style={{margin:"50px"}}>
+            Coming Soon
+        </div>
     );
 }
