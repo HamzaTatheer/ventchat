@@ -1,0 +1,16 @@
+.git
+.results
+scripts
+*Dockerfile*
+Dockerfile.dev
+node_modules
+
+
+
+# .env
+# .next
+
+
+# pages
+# public
+# styles

@@ -4,30 +4,36 @@ version: '3.1'
 
 services:
 
-  #This is database being used
-  mongo:
-    image: mongo
-    restart: always
-    ports:
-      - 27017:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+  # #This is database being used
+  # mongo:
+  #   image: mongo
+  #   restart: always
+  #   ports:
+  #     - 27017:27017
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: root
+  #     MONGO_INITDB_ROOT_PASSWORD: example
 
-  #This is web interface for accessing mongodb database
-  mongo-express:
-    image: mongo-express
-    restart: always
-    ports:
-      - 8081:8081
-    environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+  # #This is web interface for accessing mongodb database
+  # mongo-express:
+  #   image: mongo-express
+  #   restart: always
+  #   ports:
+  #     - 8081:8081
+  #   environment:
+  #     ME_CONFIG_MONGODB_ADMINUSERNAME: root
+  #     ME_CONFIG_MONGODB_ADMINPASSWORD: example
 
   webapp:
+    image: ventchat_webapp
+    build:
+      context: ./webapp/ventchat/.
+      dockerfile: Dockerfile.dev
     volumes:
-      - './webapp/src:/app/src'
+      - ./webapp/ventchat:/app
+      - /app/node_modules
+      - /app/.next
     ports:
       - '3000:3000'
-    image: webapp
-    build: ./webapp/.
+
+      
