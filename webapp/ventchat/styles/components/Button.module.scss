@@ -1,0 +1,51 @@
+@import '../style-assets/colors';
+
+.header-btn{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.header-btn-selected{
+    @extend .header-btn;
+    background: white;
+    color: #0BA825;
+}
+
+.header-btn-unselected{
+    @extend .header-btn;
+    color: white;    
+}
+
+
+.custom-btn{
+    background: #0BA825;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.custom-btn:hover{
+    background: #26c240;
+}
+
+.custom-btn:focus{
+    background: #26c240;
+}
+
+.custom-btn-selected{
+    @extend .custom-btn;
+
+}
+
+.custom-btn-unselected{
+    @extend .custom-btn;
+}
